@@ -20,6 +20,10 @@ TEXT = (
 
 
 def main() -> None:
+    if not 1 <= len(TEXT) <= 280:
+        raise ValueError(
+            f"entry text must be 1..280 characters, got {len(TEXT)}"
+        )
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
